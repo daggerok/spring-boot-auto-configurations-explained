@@ -1,8 +1,8 @@
 # spring-boot auto-configurations [![Build Status](https://travis-ci.org/daggerok/spring-boot-auto-configurations-explained.svg?branch=master)](https://travis-ci.org/daggerok/spring-boot-auto-configurations-explained)
 Using `META-INF/spring.factories` and `@AutoConfiguration` for automatic spring-boot applications configuration
 
-Let's assume we would like to provide automatically `HelloService` from `my.annotation:library` module
-and use it inside `my.annotation:application` main application module...
+Let's assume we would like to provide automatically `HelloService` bean from `my.annotation:library` module (producer)
+and use it inside `my.annotation:application` main application module consumer...
 
 ## annotation
 
