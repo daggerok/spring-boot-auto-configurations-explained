@@ -1,4 +1,4 @@
-# spring-boot auto-configurations
+# spring-boot auto-configurations [![Build Status](https://travis-ci.org/daggerok/spring-boot-auto-configurations-explained.svg?branch=master)](https://travis-ci.org/daggerok/spring-boot-auto-configurations-explained)
 Using `META-INF/spring.factories` and `@AutoConfiguration` for automatic spring-boot applications configuration
 
 ## annotation
