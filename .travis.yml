@@ -52,6 +52,9 @@ jobs:
         - http :8080/actuator/info
         - http :8080/ololo-trololo
         - stop_any 80
+before_cache:
+  - find ~/.gradle -name "fileHashes.bin" -print0 | xargs -0 rm -rfv '{}'
+  - for item in $(find ~/.gradle -name "*.lock") ; do rm -rfv $item ; done
 cache:
   pip: true
   packages: true
