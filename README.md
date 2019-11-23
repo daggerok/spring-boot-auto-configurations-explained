@@ -1,16 +1,16 @@
 # spring-boot auto-configurations [![Build Status](https://travis-ci.org/daggerok/spring-boot-auto-configurations-explained.svg?branch=master)](https://travis-ci.org/daggerok/spring-boot-auto-configurations-explained)
 Using `META-INF/spring.factories` and `@AutoConfiguration` for automatic spring-boot applications configuration
 
-## annotation
-
 Let's assume we would like to provide automatically `HelloService` from `my.annotation:library` module
 and use it inside `my.annotation:application` main application module...
 
+## annotation
+
+dependency + `@Import` annotation
+
 ### library
 
-_HelloService.java_
-
-Implement service
+Implement service in _HelloService.java_ file
 
 ```java
 @Service
@@ -24,9 +24,7 @@ public class HelloService {
 }
 ```
 
-_HelloLibraryAutoConfiguration.java_
-
-Do not forget add `@SpringBootApplication` annotation in based package
+Do not forget add `@SpringBootApplication` annotation in based package of producing library in _HelloLibraryAutoConfiguration.java_
 
 ```java
 @SpringBootApplication
@@ -35,9 +33,7 @@ public class HelloLibraryAutoConfiguration { }
 
 ### application
 
-_pom.xml_
-
-Add dependency
+Add dependency in consumer _pom.xml_
 
 ```xml
     <dependencies>
@@ -48,9 +44,7 @@ Add dependency
     </dependencies>
 ```
 
-_HelloApplication.java_
-
-Import auto-configuration
+Import auto-configuration in main application class, file _HelloApplication.java_
 
 ```java
 @SpringBootApplication
@@ -58,9 +52,7 @@ Import auto-configuration
 public class HelloApplication { /* ... */ }
 ```
 
-_HelloHandler.java_
-
-Inject service from auto-configuration
+Inject service from auto-configuration in _HelloHandler.java_ file
 
 ```java
 @Service
@@ -77,14 +69,11 @@ public class HelloHandler {
 
 ## spring.factories
 
-Let's assume we would like to provide automatically `HelloService` from `my.spring.factories:library` module
-and use it inside `my.spring.factories:application` main application module...
+import requested functionality automaticallt just by adding dependency
 
 ### library
 
-_HelloService.java_
-
-Implement service
+Implement service in _HelloService.java_
 
 ```java
 public class HelloService {
@@ -97,9 +86,7 @@ public class HelloService {
 }
 ```
 
-_HelloLibraryAutoConfiguration.java_
-
-Do not forget add `@Bean` in library auto-configuration
+Do not forget add `@Bean` in library auto-configuration _HelloLibraryAutoConfiguration.java_ file
 
 ```java
 @Configuration
@@ -113,9 +100,7 @@ public class HelloLibraryAutoConfiguration {
 }
 ```
 
-_src/main/resources/META-INF/spring.factories_
-
-configure auto-configuration
+configure new auto-configuration in _src/main/resources/META-INF/spring.factories_ file
 
 ```properties
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
@@ -124,9 +109,7 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 
 ### application
 
-_pom.xml_
-
-Add dependency
+Add dependency in consumer _pom.xml_
 
 ```xml
     <dependencies>
@@ -137,9 +120,7 @@ Add dependency
     </dependencies>
 ```
 
-_HelloHandler.java_
-
-Inject service from auto-configuration
+Inject service from producer auto-configuration _HelloHandler.java_
 
 ```java
 @Service
