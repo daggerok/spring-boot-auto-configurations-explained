@@ -6,7 +6,7 @@ and use it inside `my.annotation:application` main application module consumer..
 
 ## annotation
 
-dependency + `@Import` annotation
+Import functionality by using dependency and `@Import` annotation on consumer side
 
 ### library
 
@@ -69,7 +69,7 @@ public class HelloHandler {
 
 ## spring.factories
 
-import requested functionality automaticallt just by adding dependency
+import functionality automatically just by adding dependency on consumer side
 
 ### library
 
