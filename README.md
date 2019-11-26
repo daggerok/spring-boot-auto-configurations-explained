@@ -1,10 +1,10 @@
 # spring-boot auto-configurations [![Build Status](https://travis-ci.org/daggerok/spring-boot-auto-configurations-explained.svg?branch=master)](https://travis-ci.org/daggerok/spring-boot-auto-configurations-explained)
 Using `META-INF/spring.factories` and `@AutoConfiguration` for automatic spring-boot applications configuration
 
+## annotation
+
 Let's assume we would like to provide automatically `HelloService` bean from `my.annotation:library` module (producer)
 and use it inside `my.annotation:application` main application module consumer...
-
-## annotation
 
 Import functionality by using dependency and `@Import` annotation on consumer side
 
@@ -72,6 +72,9 @@ public class HelloHandler {
 import functionality automatically just by adding dependency on consumer side
 
 ### library
+
+Now let's assume we would like to provide automatically same `HelloService` bean but this time from
+`my.spring.factories:library` module (producer) and use it inside `my.spring.factories:application` main application module consumer...
 
 Implement service in _HelloService.java_
 
